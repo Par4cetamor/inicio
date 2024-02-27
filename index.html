@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F5F8FA;
+            padding: 20px;
+        }
+        #myForm {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+        #myForm input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+        #myForm input[type="submit"] {
+            background-color: #1DA1F2;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .post {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm" action="##########" method="post">
+        <label for="fname">publicar:</label><br>
+        <input type="text" id="texto" name="texto"><br>
+        <input type="submit" value="Guardar">
+    </form>
+    <div id="posts"></div>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var texto = document.getElementById('texto').value;
+            var div = document.createElement('div');
+            div.className = 'post';
+            div.textContent = texto;
+            document.getElementById('posts').appendChild(div);
+            document.getElementById('texto').value = '';
+        });
+    </script>
+</body>
+</html>
